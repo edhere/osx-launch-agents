@@ -40,6 +40,7 @@ class Agent
         exec.puts "#!/bin/bash"
         exec.puts "mkdir ~/Desktop/#{@id}"
       end
+      `chmod a+x "#{@pwd}"/agents/"#{@id}"/exec.sh`
     end
     config
   end
