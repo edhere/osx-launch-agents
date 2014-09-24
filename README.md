@@ -3,3 +3,9 @@
 git clone git@github.com:advectus/osx-launch-agents.git ~/osx-launch-agents
 cd ~/osx-launch-agents && bundle install
 
+
+### add agent
+
+```
+ruby add_agent.rb ~/bootstrap.sh
+```
