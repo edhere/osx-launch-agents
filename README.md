@@ -14,3 +14,19 @@ ruby add_agent.rb ~/bootstrap.sh
 
 >> agent.load
 ```
+
+### LaunchAgents
+
+```
+launchctl list
+launchctl remove com.spotify.webhelper
+launchctl remove com.evernote.EvernoteHelper
+
+```
+
+### LaunchDaemons
+
+```
+cd  /Library/LaunchDaemons
+launchctl remove com.LaCie.LRMService.plist
+```
