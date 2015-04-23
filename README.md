@@ -26,7 +26,54 @@ launchctl remove com.evernote.EvernoteHelper
 
 ### LaunchDaemons
 
+using launchctl
 ```
 cd  /Library/LaunchDaemons
-launchctl remove com.LaCie.LRMService.plist
+sudo launchctl list | grep ^[0-9]
+sudo launchctl bslist | grep ^A
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist
+``
+
+### Diagnostics
+
+check information on kernal usage 
+```
+sudo zprint -t
+sudo zprint -t -s | head -n20
+```
+
+report on syscalls
+```
+sudo syscallbypid.d
+sudo syscallbysysc.d
+```
+
+new processes as they are executed
+```
+sudo newproc.d
+```
+
+new files
+```
+sudo creatbyproc.d
+```
+
+free inactive memory: force completion of pending disk writes, force disk cache to be purged
+```
+sync && sudo purge
+```
+
+apple diagnose
+```
+sysdiagnose
+```
+reset SMC
+```
+http://support.apple.com/en-us/HT201295
+```
+
+reset computers PRAM
+```
+http://support.apple.com/kb/PH18761
 ```
