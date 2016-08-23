@@ -15,6 +15,14 @@ ruby add_agent.rb ~/bootstrap.sh
 >> agent.load
 ```
 
+### locations on file system
+
+~/Library/LaunchAgents         Per-user agents provided by the user.
+/Library/LaunchAgents          Per-user agents provided by the administrator.
+/Library/LaunchDaemons         System-wide daemons provided by the administrator.
+/System/Library/LaunchAgents   Per-user agents provided by Apple.
+/System/Library/LaunchDaemons
+
 ### LaunchAgents
 
 ```

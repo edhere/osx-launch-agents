@@ -10,6 +10,7 @@ class Agent
     # if id supplied, get existing launch agent info
     if !id && @exec
       configure
+      load
     end    
   end
   def test
