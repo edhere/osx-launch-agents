@@ -10,12 +10,22 @@ cd ~/osx-launch-agents && bundle install
 ### add agent
 
 ```
-ruby add_agent.rb ~/bootstrap.sh
-
->> agent.load
+./bin/osxyz add_agent ~/bootstrap.sh
 ```
 
-### locations on file system
+### remove agent
+
+```
+./bin/osxyz remove_agent "com.advectus.zhmsorlhx50bxx8t5f9wt5utmsdz7xg.plist"
+```
+
+### list agents
+
+```
+./bin/osxyz list_agents
+```
+
+### LaunchAgent locations on file system
 
 ~/Library/LaunchAgents         Per-user agents provided by the user.
 /Library/LaunchAgents          Per-user agents provided by the administrator.
@@ -23,7 +33,7 @@ ruby add_agent.rb ~/bootstrap.sh
 /System/Library/LaunchAgents   Per-user agents provided by Apple.
 /System/Library/LaunchDaemons
 
-### LaunchAgents
+### LaunchAgent
 
 ```
 launchctl list
@@ -34,7 +44,6 @@ launchctl remove com.evernote.EvernoteHelper
 
 ### LaunchDaemons
 
-using launchctl
 ```
 cd  /Library/LaunchDaemons
 sudo launchctl list | grep ^[0-9]
@@ -45,7 +54,7 @@ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist
 
 ### Diagnostics
 
-check information on kernal usage 
+check information on kernel usage
 ```
 sudo zprint -t
 sudo zprint -t -s | head -n20

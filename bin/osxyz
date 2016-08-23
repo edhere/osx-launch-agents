@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.dirname(__FILE__) + "/../lib" if $0 == __FILE__
+require 'optparse'
+require 'osxyz'
+
+ALLOWED = %w(list list_agents add_agent remove_agent)
+
+option_parser = OptionParser.new do |opts|
+  opts.banner = "Osxyz #{Osxyz::VERSION}\n" \
+    "Usage: ./bin/osxyz [#{ALLOWED.join('|')}] [options]"
+end
+option_parser.parse!
+
+action = ARGV.shift
+if ALLOWED.include?(action)
+  begin
+    Osxyz.send(action.to_sym, ARGV)
+  rescue Exception => e
+    puts e.message
+  end
+else
+  puts option_parser.help
+end
